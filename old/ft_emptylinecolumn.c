@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_emptylinecolumn.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 11:45:54 by gvilmont          #+#    #+#             */
-/*   Updated: 2015/11/25 11:49:36 by gvilmont         ###   ########.fr       */
+/*   Created: 2016/01/04 18:27:02 by gvilmont          #+#    #+#             */
+/*   Updated: 2016/01/05 16:45:44 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "fillit.h"
 
-void	ft_putstr(char const *s)
+int		ft_emptylinecolumn(char **tab)
 {
-	int a;
+	int	a;
+	int	empty;
 
 	a = 0;
-	while (s[a] != '\0')
+	empty = 0;
+	while (a < 4)
 	{
-		ft_putchar(s[a]);
+		if (ft_lisempty(tab, a) == 1)
+			empty++;
+		if (ft_cisempty(tab, a) == 1)
+			empty++;
 		a++;
 	}
+	if (empty <= 2 || empty > 5)
+		return (0);
+	return (empty);
 }

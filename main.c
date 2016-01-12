@@ -1,41 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_change.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/16 16:36:11 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/01/11 12:41:13 by gvilmont         ###   ########.fr       */
+/*   Created: 2016/01/05 16:22:20 by gvilmont          #+#    #+#             */
+/*   Updated: 2016/01/11 16:06:23 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "fillit.h"
 
-char	*ft_change(char *str)
+int	main(int argc, char *argv[])
 {
-	char	*dst;
-	int		i;
-	int		j;
-
-	i = 0;
-	j = -1;
-	dst = (char*)malloc(sizeof(char) * (ft_strlen(str) + 1));
-	while (str[i] != '\0')
+	if (argc == 2)
 	{
-		dst[i] = str[i];
-		if (i % 21 == 0)
-			j++;
-		/*if (j == 26)
-		{
+		if (ft_mapisvalid(ft_read_txt(argv[1])) == 1)
+			ft_intab(ft_change(ft_rapl_fonctions(ft_read_txt(argv[1]))));
+		else
 			ft_putstr("error\n");
-			return (NULL);
-		}*/
-		if (str[i] == '#')
-			dst[i] = 'A' + j;
-		i++;
 	}
-	dst[i] = '\0';
-	return (dst);
+	return (0);
 }

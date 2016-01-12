@@ -1,41 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_change.c                                        :+:      :+:    :+:   */
+/*   ft_showtab.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/16 16:36:11 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/01/11 12:41:13 by gvilmont         ###   ########.fr       */
+/*   Created: 2016/01/12 18:51:15 by gvilmont          #+#    #+#             */
+/*   Updated: 2016/01/12 20:59:35 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+
 #include "fillit.h"
 
-char	*ft_change(char *str)
+void	ft_showtab(char **tab)
 {
-	char	*dst;
-	int		i;
-	int		j;
+	int a;
+	int b;
 
-	i = 0;
-	j = -1;
-	dst = (char*)malloc(sizeof(char) * (ft_strlen(str) + 1));
-	while (str[i] != '\0')
+	a = 0;
+	b = 0;
+	while (a < ft_carlen(tab))
 	{
-		dst[i] = str[i];
-		if (i % 21 == 0)
-			j++;
-		/*if (j == 26)
+		while (b < ft_carlen(tab))
 		{
-			ft_putstr("error\n");
-			return (NULL);
-		}*/
-		if (str[i] == '#')
-			dst[i] = 'A' + j;
-		i++;
+			ft_putchar(tab[a][b]);
+			b++;
+		}
+		ft_putchar('\n');
+		a++;
+		b = 0;
 	}
-	dst[i] = '\0';
-	return (dst);
 }

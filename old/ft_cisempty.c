@@ -1,41 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_change.c                                        :+:      :+:    :+:   */
+/*   ft_cisempty.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/16 16:36:11 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/01/11 12:41:13 by gvilmont         ###   ########.fr       */
+/*   Created: 2016/01/04 18:37:17 by gvilmont          #+#    #+#             */
+/*   Updated: 2016/01/05 16:47:18 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "fillit.h"
 
-char	*ft_change(char *str)
+int	ft_cisempty(char **tab, int b)
 {
-	char	*dst;
-	int		i;
-	int		j;
+	int	a;
 
-	i = 0;
-	j = -1;
-	dst = (char*)malloc(sizeof(char) * (ft_strlen(str) + 1));
-	while (str[i] != '\0')
+	a = 0;
+	while (a < 4)
 	{
-		dst[i] = str[i];
-		if (i % 21 == 0)
-			j++;
-		/*if (j == 26)
-		{
-			ft_putstr("error\n");
-			return (NULL);
-		}*/
-		if (str[i] == '#')
-			dst[i] = 'A' + j;
-		i++;
+		if (tab[a][b] == '.')
+			a++;
+		else
+			return (0);
 	}
-	dst[i] = '\0';
-	return (dst);
+	return (1);
 }

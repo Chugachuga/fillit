@@ -1,41 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_change.c                                        :+:      :+:    :+:   */
+/*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/16 16:36:11 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/01/11 12:41:13 by gvilmont         ###   ########.fr       */
+/*   Created: 2016/01/05 16:30:17 by gvilmont          #+#    #+#             */
+/*   Updated: 2016/01/12 20:01:06 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include "fillit.h"
+#ifndef FILLIT_H
+# define FILLIT_H
+# include "libft.h"
+# include <string.h>
+# include <stdlib.h>
+# include <fcntl.h>
+# include <unistd.h>
+# include <stdio.h>
 
-char	*ft_change(char *str)
-{
-	char	*dst;
-	int		i;
-	int		j;
+int		ft_mapisvalid(char *str);
+char	*ft_read_txt(char *dst);
+char	**ft_intab(char *str);
+char	*ft_change(char *str);
+char	*ft_rapl_fonctions(char *str);
+char	**ft_initmap(void);
+void	ft_showtab(char **tab);
+int		ft_carlen(char **tab);
 
-	i = 0;
-	j = -1;
-	dst = (char*)malloc(sizeof(char) * (ft_strlen(str) + 1));
-	while (str[i] != '\0')
-	{
-		dst[i] = str[i];
-		if (i % 21 == 0)
-			j++;
-		/*if (j == 26)
-		{
-			ft_putstr("error\n");
-			return (NULL);
-		}*/
-		if (str[i] == '#')
-			dst[i] = 'A' + j;
-		i++;
-	}
-	dst[i] = '\0';
-	return (dst);
-}
+#endif

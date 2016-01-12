@@ -6,7 +6,7 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 13:00:27 by gvilmont          #+#    #+#             */
-/*   Updated: 2015/12/21 00:06:00 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/01/05 16:48:07 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "libft.h"
-#include <stdio.h>
+#include "fillit.h"
 #define BUF_SIZE 4096
 
 char	*ft_read_txt(char *str)
