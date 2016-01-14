@@ -6,7 +6,7 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/12 19:16:11 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/01/12 21:01:41 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/01/14 18:40:47 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	ft_ylen(char **tab)
 			b = a;
 		y++;
 	}
-	return (15 - b);
+	return (16 - b);
 }
 
 int	ft_carlen(char **tab)
