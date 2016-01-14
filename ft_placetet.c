@@ -6,7 +6,7 @@
 /*   By: hlouar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/08 17:18:11 by hlouar            #+#    #+#             */
-/*   Updated: 2016/01/11 15:55:14 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/01/14 18:51:50 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,10 +112,3 @@ char	*ft_rapl_fonctions(char *str)
 	}
 	return (str);
 }
-
-
-/*int	main(int ac, char **av)
-{
-	(void)ac;
-	printf("%s", ft_rapl_fonctions(ft_read_txt(av[1])));
-}*/

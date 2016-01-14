@@ -6,7 +6,7 @@
 /*   By: hlouar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/06 15:48:51 by hlouar            #+#    #+#             */
-/*   Updated: 2016/01/11 15:54:56 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/01/14 18:52:23 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,13 +86,10 @@ int	ft_mapisvalid(char *str)
 	int j;
 
 	j = 0;
-	//printf("%d\n", count_tet(str));
 	while (str[j] != '\0')
 	{
 		x = ft_check_map(str, j);
 		e = ft_checkhashtag(str, j);
-		//printf("%d\n", check_map(str, j));
-		//printf("%d\n", ft_checkhashtag(str, j));
 		if (x != 1 || e != 1 || ft_count_tet(str) > 26)
 			return (0);
 		else
@@ -100,9 +97,3 @@ int	ft_mapisvalid(char *str)
 	}
 	return (1);
 }
-
-/*int	main(int ac, char **av)
-{
-	(void)ac;
-	printf("%d", ft_mapisvalid(ft_read_txt(av[1])));
-}*/
