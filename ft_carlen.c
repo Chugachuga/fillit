@@ -6,7 +6,7 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/12 19:16:11 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/01/14 18:40:47 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/01/14 19:14:44 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	ft_xlen(char **tab)
 	return (16 - b);
 }
 
-int ft_columnlen(char **tab, int y)
+int	ft_columnlen(char **tab, int y)
 {
 	int b;
 	int x;

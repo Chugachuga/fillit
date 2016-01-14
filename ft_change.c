@@ -6,7 +6,7 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 16:36:11 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/01/11 12:41:13 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/01/14 18:57:26 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,6 @@ char	*ft_change(char *str)
 		dst[i] = str[i];
 		if (i % 21 == 0)
 			j++;
-		/*if (j == 26)
-		{
-			ft_putstr("error\n");
-			return (NULL);
-		}*/
 		if (str[i] == '#')
 			dst[i] = 'A' + j;
 		i++;

@@ -6,7 +6,7 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/17 14:44:01 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/01/11 16:02:09 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/01/14 18:57:52 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,3 @@ char	**ft_intab(char *str)
 	}
 	return (tab);
 }
-
-/*int		main(int argc, char *argv[])
-{
-	if (argc == 2)
-		ft_intab(ft_read_txt(argv[1]));
-	return (0);
-}*/

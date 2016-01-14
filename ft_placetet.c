@@ -6,16 +6,16 @@
 /*   By: hlouar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/08 17:18:11 by hlouar            #+#    #+#             */
-/*   Updated: 2016/01/14 18:51:50 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/01/14 18:59:56 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int	ft_diff_line(char *str, int j)
+int		ft_diff_line(char *str, int j)
 {
-	int i;
-	int y;
+	int	i;
+	int	y;
 
 	i = j;
 	y = 0;
@@ -27,26 +27,24 @@ int	ft_diff_line(char *str, int j)
 			y++;
 			i = j;
 			i += y;
-//		printf("y = %d\n", i);
 		}
-//		printf("i = %d\n", i);
 		if (str[i] == '#')
 			break ;
 	}
 	return (y);
 }
 
-int	ft_diff_column(char *str, int j)
+int		ft_diff_column(char *str, int j)
 {
-	int i;
-	int diff;
+	int	i;
+	int	diff;
 
 	i = j;
 	diff = 0;
 	while (i < 21 + j)
 	{
 		if (str[i] == '#')
-			break;
+			break ;
 		i++;
 		if (str[i] == '\n')
 		{
@@ -59,8 +57,8 @@ int	ft_diff_column(char *str, int j)
 
 char	*ft_change_placeline(char *str, int j)
 {
-	int i;
-	int y;
+	int	i;
+	int	y;
 
 	y = ft_diff_line(str, j);
 	i = j;
@@ -80,8 +78,8 @@ char	*ft_change_placeline(char *str, int j)
 
 char	*ft_change_placecolumn(char *str, int j)
 {
-	int i;
-	int y;
+	int	i;
+	int	y;
 
 	y = ft_diff_column(str, j);
 	i = j;
@@ -101,7 +99,7 @@ char	*ft_change_placecolumn(char *str, int j)
 
 char	*ft_rapl_fonctions(char *str)
 {
-	int j;
+	int	j;
 
 	j = 0;
 	while (str[j] != '\0')
