@@ -6,7 +6,7 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/11 17:59:04 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/01/15 03:50:22 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/01/15 05:45:13 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,6 @@ char	**ft_putintab(char **new, char *tab, int x, int y)
 	i = 0;
 	while (tab[i] != '\0')
 	{
-		/*if (ft_isalpha(tab[i]) && ft_isalpha(new[a][b]))
-			break ;*/
 		if (ft_isalpha(tab[i]) && ft_isalpha(new[a][b]) == 0)
 			new[a][b] = tab[i];
 		if (tab[i] == '\n')

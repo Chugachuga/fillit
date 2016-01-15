@@ -6,7 +6,7 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 16:22:20 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/01/15 05:32:55 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/01/15 05:44:54 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int	main(int argc, char *argv[])
 {
-	char **tab;
-	char **new;
-	int a;
-	int b;
-	int x;
-	int y;
+	char	**tab;
+	char	**new;
+	int		a;
+	int		b;
+	int		x;
+	int		y;
 
 	new = ft_initmap();
 	tab = NULL;
