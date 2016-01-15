@@ -6,7 +6,7 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 16:30:17 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/01/14 18:51:11 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/01/15 04:26:34 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,13 @@ char	*ft_rapl_fonctions(char *str);
 char	**ft_initmap(void);
 void	ft_showtab(char **tab);
 int		ft_carlen(char **tab);
-char	**ft_putintab(char **new, char *tab, int x, int y);
+char	**ft_putintab(char **tab, char *str, int x, int y);
+int		ft_count_tet(char *str);
+int		ft_xlen(char **tab);
+int		ft_ylen(char **tab);
+int		ft_xshortlen(char **tab);
+int		ft_yshortlen(char **tab);
+int		ft_shortlen(char **tab);
+int		ft_checkpos(char **tab, char *str, int x, int y);
 
 #endif

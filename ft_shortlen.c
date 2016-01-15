@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_carlen.c                                        :+:      :+:    :+:   */
+/*   ft_shortlen.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/12 19:16:11 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/01/14 22:10:04 by gvilmont         ###   ########.fr       */
+/*   Created: 2016/01/15 00:49:58 by gvilmont          #+#    #+#             */
+/*   Updated: 2016/01/15 01:12:27 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int	ft_linelen(char **tab, int x)
+int	ft_shortlinelen(char **tab, int x)
 {
 	int b;
 	int y;
@@ -29,7 +29,7 @@ int	ft_linelen(char **tab, int x)
 	return (b);
 }
 
-int	ft_xlen(char **tab)
+int	ft_xshortlen(char **tab)
 {
 	int x;
 	int a;
@@ -37,18 +37,18 @@ int	ft_xlen(char **tab)
 
 	x = 0;
 	a = 0;
-	b = 16;
+	b = 0;
 	while (tab[x])
 	{
-		a = ft_linelen(tab, x);
-		if (a < b)
+		a = ft_shortlinelen(tab, x);
+		if (a > b)
 			b = a;
 		x++;
 	}
 	return (17 - b);
 }
 
-int	ft_columnlen(char **tab, int y)
+int	ft_shortcolumnlen(char **tab, int y)
 {
 	int b;
 	int x;
@@ -65,7 +65,7 @@ int	ft_columnlen(char **tab, int y)
 	return (b);
 }
 
-int	ft_ylen(char **tab)
+int	ft_yshortlen(char **tab)
 {
 	int y;
 	int a;
@@ -73,21 +73,21 @@ int	ft_ylen(char **tab)
 
 	y = 0;
 	a = 0;
-	b = 16;
+	b = 0;
 	while (y < 16)
 	{
-		a = ft_columnlen(tab, y);
-		if (a < b)
+		a = ft_shortcolumnlen(tab, y);
+		if (a > b)
 			b = a;
 		y++;
 	}
 	return (16 - b);
 }
 
-int	ft_carlen(char **tab)
+int	ft_shortlen(char **tab)
 {
-	if (ft_ylen(tab) < ft_xlen(tab))
-		return (ft_xlen(tab));
+	if (ft_yshortlen(tab) > ft_xshortlen(tab))
+		return (ft_xshortlen(tab));
 	else
-		return (ft_ylen(tab));
+		return (ft_yshortlen(tab));
 }

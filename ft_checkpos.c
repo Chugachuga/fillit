@@ -1,34 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_placetet.c                                      :+:      :+:    :+:   */
+/*   ft_checkpos.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hlouar <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/08 15:42:13 by hlouar            #+#    #+#             */
-/*   Updated: 2016/01/08 17:16:07 by hlouar           ###   ########.fr       */
+/*   Created: 2016/01/15 04:13:19 by gvilmont          #+#    #+#             */
+/*   Updated: 2016/01/15 04:20:30 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char	*ft_seektet(char *str, int c)
+int		ft_checkpos(char **new, char *tab, int x , int y)
 {
+	int a;
+	int b;
 	int i;
-	int y;
-	char *ret;
 
+	a = x;
+	b = y;
 	i = 0;
-	y = 0;
-	ret = NULL;
-	while (str[c] != '\0' && y != 4)
+	while (tab[i] != '\0')
 	{
-		if (str[c] == '#')
-			y++;
-		ret[i] = str[c];
+		if (ft_isalpha(tab[i]) && ft_isalpha(new[a][b]))
+			return (0);
+		if (tab[i] == '\n')
+		{
+			a++;
+			b = y - 1;
+		}
+		b++;
 		i++;
-		c++;
 	}
-	ret[i] = '\0';
-	return (str);
+	return (1);
 }
