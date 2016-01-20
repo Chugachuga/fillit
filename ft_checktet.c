@@ -6,7 +6,7 @@
 /*   By: hlouar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/06 15:48:51 by hlouar            #+#    #+#             */
-/*   Updated: 2016/01/20 17:07:58 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/01/20 17:21:10 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int	ft_checkhashtag(char *str, int j)
 						str[i + 1] == '#' || str[i + 5] == '#'))
 				e++;
 			if (i > (4 + j) && i < (14 + j) && (str[i - 1] == '#'
-							|| str[i + 1] == '#' || str[i - 5] == '#'
-								|| str[i + 5] == '#'))
+						|| str[i + 1] == '#' || str[i - 5] == '#'
+						|| str[i + 5] == '#'))
 				e++;
 			if (i > (14 + j) && (str[i - 5] == '#' || str[i + 1] == '#' ||
 						str[i - 1] == '#'))
@@ -64,6 +64,32 @@ int	ft_check_map(char *str, int j)
 	return (0);
 }
 
+int ft_lineisvalid(char *str)
+{
+	int a;
+	int b;
+
+	a = 0;
+	b = 0;
+	while (str[a] != '\0')
+	{
+		if (str[a] == '\n' && (str[a + 1] != '\n' || str[a + 1] != '\0'))
+			b++;
+		if (str[a] == '\n' && str[a + 1] == '\n' && str[a + 2] == '\0')
+			return (0);
+		if (str[a] == '\n' && (str[a + 1] == '\n'
+					|| str[a + 1] == '\0'))
+		{
+			a++;
+			if (b != 4)
+				return (0);
+			b = 0;
+		}
+		a++;
+	}
+	return (1);
+}
+
 int	ft_count_tet(char *str)
 {
 	int i;
@@ -93,19 +119,11 @@ int	ft_mapisvalid(char *str)
 	{
 		x = ft_check_map(str, j);
 		e = ft_checkhashtag(str, j);
-		printf("x = %d\n", ft_check_map(str, j));
-		printf("e = %d\n", ft_checkhashtag(str, j));
-		if (x != 1 || e != 1 || ft_count_tet(str) > 26)
+		if (x != 1 || e != 1 || ft_count_tet(str) > 26 ||
+					ft_lineisvalid(str) == 0)
 			return (0);
 		else
 			j += 21;
 	}
 	return (1);
-}
-
-int main(int argc, char *argv[])
-{
-	if (argc == 2)
-		printf("%d\n", ft_mapisvalid(ft_read_txt(argv[1])));
-	return (0);
 }

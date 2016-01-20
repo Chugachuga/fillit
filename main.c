@@ -6,7 +6,7 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 16:22:20 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/01/20 16:51:41 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/01/20 17:43:21 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	main(int argc, char *argv[])
 					while (ft_checkpos(new, tab[a], x, y) == 0 && y < ft_carlen(new))
 					{
 						y++;
-						if (ft_checkpos(new, tab[a], x, y) == 0 && y == b / 2)
+						if (ft_checkpos(new, tab[a], x, y) == 0 && y == (b + 1) / 2)
 						{
 							x++;
 							y = 0;
@@ -52,7 +52,7 @@ int	main(int argc, char *argv[])
 					while (ft_checkpos(new, tab[a], x ,y) == 0 && x < ft_carlen(new))
 					{
 						x++;
-						if (ft_checkpos(new, tab[a], x ,y) == 0 && x == b / 2)
+						if (ft_checkpos(new, tab[a], x ,y) == 0 && x == (b + 1) / 2)
 						{
 							y++;
 							x = 0;
