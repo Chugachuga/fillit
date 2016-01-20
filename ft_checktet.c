@@ -6,11 +6,12 @@
 /*   By: hlouar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/06 15:48:51 by hlouar            #+#    #+#             */
-/*   Updated: 2016/01/14 18:52:23 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/01/20 17:07:58 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include <stdio.h>
 
 int	ft_checkhashtag(char *str, int j)
 {
@@ -83,17 +84,28 @@ int	ft_mapisvalid(char *str)
 {
 	int x;
 	int e;
+	int len;
 	int j;
 
 	j = 0;
-	while (str[j] != '\0')
+	len = ft_strlen(str);
+	while (j < len)
 	{
 		x = ft_check_map(str, j);
 		e = ft_checkhashtag(str, j);
+		printf("x = %d\n", ft_check_map(str, j));
+		printf("e = %d\n", ft_checkhashtag(str, j));
 		if (x != 1 || e != 1 || ft_count_tet(str) > 26)
 			return (0);
 		else
 			j += 21;
 	}
 	return (1);
+}
+
+int main(int argc, char *argv[])
+{
+	if (argc == 2)
+		printf("%d\n", ft_mapisvalid(ft_read_txt(argv[1])));
+	return (0);
 }

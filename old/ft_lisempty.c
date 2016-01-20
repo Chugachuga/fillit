@@ -1,47 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intab.c                                         :+:      :+:    :+:   */
+/*   ft_lisempty.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/17 14:44:01 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/01/20 16:43:19 by gvilmont         ###   ########.fr       */
+/*   Created: 2016/01/04 18:38:59 by gvilmont          #+#    #+#             */
+/*   Updated: 2016/01/05 16:46:20 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include "fillit.h"
 
-char	*ft_intab1(char *str, int c, int a, char **tab)
+int	ft_lisempty(char **tab, int a)
 {
-	int		b;
+	int b;
 
 	b = 0;
-	tab[a] = (char*)malloc(sizeof(char) * 21);
-	while (b < 20)
+	while (b < 4)
 	{
-		tab[a][b] = str[c];
-		c++;
-		b++;
+		if (tab[a][b] == '.')
+			b++;
+		else
+			return (0);
 	}
-	tab[a][b] = '\0';
-	return (tab[a]);
-}
-
-char	**ft_intab(char *str)
-{
-	char	**tab;
-	int		c;
-	int		a;
-
-	c = 0;
-	a = 0;
-	tab = (char**)malloc(sizeof(char*) * 27);
-	while (str[c] != '\0')
-	{
-		tab[a] = ft_intab1(str, c, a, tab);
-		c += 21;
-		a++;
-	}
-	return (tab);
+	return (1);
 }

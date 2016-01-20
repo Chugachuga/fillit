@@ -6,7 +6,7 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 16:30:17 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/01/15 05:41:38 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/01/20 16:35:04 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,7 @@ int		ft_carlen(char **tab);
 char	**ft_putintab(char **tab, char *str, int x, int y);
 int		ft_count_tet(char *str);
 int		ft_checkpos(char **tab, char *str, int x, int y);
+int		ft_xlen(char **tab);
+int		ft_ylen(char **tab);
 
 #endif

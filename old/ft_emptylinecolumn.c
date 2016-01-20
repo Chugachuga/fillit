@@ -1,47 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intab.c                                         :+:      :+:    :+:   */
+/*   ft_emptylinecolumn.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/17 14:44:01 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/01/20 16:43:19 by gvilmont         ###   ########.fr       */
+/*   Created: 2016/01/04 18:27:02 by gvilmont          #+#    #+#             */
+/*   Updated: 2016/01/05 16:45:44 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include "fillit.h"
 
-char	*ft_intab1(char *str, int c, int a, char **tab)
+int		ft_emptylinecolumn(char **tab)
 {
-	int		b;
+	int	a;
+	int	empty;
 
-	b = 0;
-	tab[a] = (char*)malloc(sizeof(char) * 21);
-	while (b < 20)
-	{
-		tab[a][b] = str[c];
-		c++;
-		b++;
-	}
-	tab[a][b] = '\0';
-	return (tab[a]);
-}
-
-char	**ft_intab(char *str)
-{
-	char	**tab;
-	int		c;
-	int		a;
-
-	c = 0;
 	a = 0;
-	tab = (char**)malloc(sizeof(char*) * 27);
-	while (str[c] != '\0')
+	empty = 0;
+	while (a < 4)
 	{
-		tab[a] = ft_intab1(str, c, a, tab);
-		c += 21;
+		if (ft_lisempty(tab, a) == 1)
+			empty++;
+		if (ft_cisempty(tab, a) == 1)
+			empty++;
 		a++;
 	}
-	return (tab);
+	if (empty <= 2 || empty > 5)
+		return (0);
+	return (empty);
 }

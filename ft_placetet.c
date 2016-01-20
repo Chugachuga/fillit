@@ -6,7 +6,7 @@
 /*   By: hlouar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/08 17:18:11 by hlouar            #+#    #+#             */
-/*   Updated: 2016/01/14 18:59:56 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/01/20 16:15:17 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,8 +104,11 @@ char	*ft_rapl_fonctions(char *str)
 	j = 0;
 	while (str[j] != '\0')
 	{
-		ft_change_placeline(str, j);
-		ft_change_placecolumn(str, j);
+		if (str[j] != '#')
+		{
+			ft_change_placeline(str, j);
+			ft_change_placecolumn(str, j);
+		}
 		j += 21;
 	}
 	return (str);

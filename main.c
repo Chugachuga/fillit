@@ -6,7 +6,7 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 16:22:20 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/01/15 05:44:54 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/01/20 16:51:41 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,26 +35,43 @@ int	main(int argc, char *argv[])
 			tab = ft_intab(ft_change(ft_rapl_fonctions(ft_read_txt(argv[1]))));
 			while (a < b)
 			{
-				while (ft_checkpos(new, tab[a], x, y) == 0 && y < ft_carlen(new))
+				if (ft_xlen(new) < ft_ylen(new) || ft_xlen(new) == ft_ylen(new))
 				{
-					y++;
-					if (ft_checkpos(new, tab[a], x, y) == 0 && y == b / 2)
+					while (ft_checkpos(new, tab[a], x, y) == 0 && y < ft_carlen(new))
+					{
+						y++;
+						if (ft_checkpos(new, tab[a], x, y) == 0 && y == b / 2)
+						{
+							x++;
+							y = 0;
+						}
+					}
+				}
+				if (ft_xlen(new) > ft_ylen(new))
+				{
+					while (ft_checkpos(new, tab[a], x ,y) == 0 && x < ft_carlen(new))
 					{
 						x++;
-						y = 0;
+						if (ft_checkpos(new, tab[a], x ,y) == 0 && x == b / 2)
+						{
+							y++;
+							x = 0;
+						}
 					}
 				}
 				if (ft_checkpos(new, tab[a], x , y) == 1)
 					ft_putintab(new, tab[a], x, y);
-				ft_showtab(new);
-				ft_putchar('\n');
 				a++;
 				x = 0;
 				y = 0;
 			}
+			ft_showtab(new);
 		}
 		else
+		{
 			ft_putstr("error\n");
+			return (0);
+		}
 	}
 	return (0);
 }

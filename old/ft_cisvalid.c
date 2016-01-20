@@ -1,47 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intab.c                                         :+:      :+:    :+:   */
+/*   ft_cisvalid.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/17 14:44:01 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/01/20 16:43:19 by gvilmont         ###   ########.fr       */
+/*   Created: 2015/12/17 15:06:51 by gvilmont          #+#    #+#             */
+/*   Updated: 2016/01/05 16:46:53 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include "fillit.h"
 
-char	*ft_intab1(char *str, int c, int a, char **tab)
+int	ft_cisvalid(char **tab)
 {
-	int		b;
+	int a;
+	int b;
+	int count_dot;
+	int count_htag;
 
-	b = 0;
-	tab[a] = (char*)malloc(sizeof(char) * 21);
-	while (b < 20)
-	{
-		tab[a][b] = str[c];
-		c++;
-		b++;
-	}
-	tab[a][b] = '\0';
-	return (tab[a]);
-}
-
-char	**ft_intab(char *str)
-{
-	char	**tab;
-	int		c;
-	int		a;
-
-	c = 0;
 	a = 0;
-	tab = (char**)malloc(sizeof(char*) * 27);
-	while (str[c] != '\0')
+	b = 0;
+	count_dot = 0;
+	count_htag = 0;
+	while (a < 4)
 	{
-		tab[a] = ft_intab1(str, c, a, tab);
-		c += 21;
+		while (b < 4)
+		{
+			if (tab[a][b] == '.')
+				count_dot++;
+			if (tab[a][b] == '#')
+				count_htag++;
+			b++;
+		}
+		b = 0;
 		a++;
 	}
-	return (tab);
+	if (count_dot != 12 || count_htag != 4)
+		return (0);
+	return (1);
 }
