@@ -6,7 +6,7 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/16 13:00:27 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/01/05 16:48:07 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/01/21 16:14:13 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ char	*ft_read_txt(char *str)
 	char	*tmp;
 
 	dst = NULL;
-	fd = open(str, O_RDONLY);
+	if ((fd = open(str, O_RDONLY)) < 0)
+		return (NULL);
 	while ((ret = read(fd, buf, BUF_SIZE)))
 	{
 		buf[ret] = '\0';

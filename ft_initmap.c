@@ -6,33 +6,31 @@
 /*   By: hlouar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/07 10:56:47 by hlouar            #+#    #+#             */
-/*   Updated: 2016/01/14 18:53:59 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/01/22 16:45:06 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include "libft.h"
 
-char	**ft_initmap(void)
+char	**ft_initmap(int size)
 {
 	char	**tab;
 	int		x;
 	int		y;
 
+	tab = (char**)malloc(sizeof(char*) * size);
+	if (!tab)
+		return (0);
 	x = 0;
-	y = 0;
-	tab = (char**)malloc(sizeof(char*) * 17);
-	while (x < 16)
+	while (x < size)
 	{
-		tab[x] = (char*)malloc(sizeof(char) * 17);
-		while (y < 16)
-		{
-			tab[x][y] = '.';
-			y++;
-		}
-		tab[x][y] = '\0';
-		x++;
 		y = 0;
+		tab[x] = (char*)malloc(sizeof(char) * size);
+		if (!tab[x])
+			return (NULL);
+		while (y < size)
+			tab[x][y++] = '.';
+		x++;
 	}
 	return (tab);
 }

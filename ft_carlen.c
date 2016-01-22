@@ -6,19 +6,20 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/12 19:16:11 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/01/14 22:10:04 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/01/22 22:04:21 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include <stdio.h>
 
-int	ft_linelen(char **tab, int x)
+int	ft_linelen(char **tab, int x, int size)
 {
 	int b;
 	int y;
 
 	b = 0;
-	y = 16;
+	y = size;
 	while (y != 0)
 	{
 		if (ft_isalpha(tab[x][y]) == 1)
@@ -29,7 +30,7 @@ int	ft_linelen(char **tab, int x)
 	return (b);
 }
 
-int	ft_xlen(char **tab)
+int	ft_xlen(char **tab, int size)
 {
 	int x;
 	int a;
@@ -37,24 +38,24 @@ int	ft_xlen(char **tab)
 
 	x = 0;
 	a = 0;
-	b = 16;
-	while (tab[x])
+	b = size;
+	while (x < size)
 	{
-		a = ft_linelen(tab, x);
+		a = ft_linelen(tab, x, size);
 		if (a < b)
 			b = a;
 		x++;
 	}
-	return (17 - b);
+	return (size + 1 - b);
 }
 
-int	ft_columnlen(char **tab, int y)
+int	ft_columnlen(char **tab, int y, int size)
 {
 	int b;
 	int x;
 
 	b = 0;
-	x = 15;
+	x = size - 1;
 	while (x != 0)
 	{
 		if (ft_isalpha(tab[x][y]) == 1)
@@ -65,7 +66,7 @@ int	ft_columnlen(char **tab, int y)
 	return (b);
 }
 
-int	ft_ylen(char **tab)
+int	ft_ylen(char **tab, int size)
 {
 	int y;
 	int a;
@@ -73,21 +74,21 @@ int	ft_ylen(char **tab)
 
 	y = 0;
 	a = 0;
-	b = 16;
-	while (y < 16)
+	b = size;
+	while (y < size)
 	{
-		a = ft_columnlen(tab, y);
+		a = ft_columnlen(tab, y, size);
 		if (a < b)
 			b = a;
 		y++;
 	}
-	return (16 - b);
+	return (size - b);
 }
 
-int	ft_carlen(char **tab)
+int	ft_carlen(char **tab, int size)
 {
-	if (ft_ylen(tab) < ft_xlen(tab))
-		return (ft_xlen(tab));
+	if (ft_ylen(tab, size) < ft_xlen(tab, size))
+		return (ft_xlen(tab, size));
 	else
-		return (ft_ylen(tab));
+		return (ft_ylen(tab, size));
 }

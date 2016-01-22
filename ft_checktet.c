@@ -6,40 +6,38 @@
 /*   By: hlouar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/06 15:48:51 by hlouar            #+#    #+#             */
-/*   Updated: 2016/01/20 17:21:10 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/01/22 16:42:49 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
 int	ft_checkhashtag(char *str, int j)
 {
 	int e;
 	int i;
+	int c;
 
-	e = 0;
+	c = 0;
 	i = j;
 	while (i < 21 + j)
 	{
 		if (str[i] == '#')
 		{
-			if (i == 0 && (str[i + 1] == '#' || str[i + 5] == '#'))
+			e = 0;
+			if (str[i + 1] && str[i + 1] == '#')
 				e++;
-			if (i > 0 && i < (5 + j) && (str[i - 1] == '#' ||
-						str[i + 1] == '#' || str[i + 5] == '#'))
+			if (str[i - 1] && str[i - 1] == '#')
 				e++;
-			if (i > (4 + j) && i < (14 + j) && (str[i - 1] == '#'
-						|| str[i + 1] == '#' || str[i - 5] == '#'
-						|| str[i + 5] == '#'))
+			if (i > (4 + j) && str[i - 5] && str[i - 5] == '#')
 				e++;
-			if (i > (14 + j) && (str[i - 5] == '#' || str[i + 1] == '#' ||
-						str[i - 1] == '#'))
+			if (i < (14 + j) && str[i + 5] && str[i + 5] == '#')
 				e++;
+			c += e;
 		}
 		i++;
 	}
-	return ((e == 4) ? 1 : 0);
+	return ((c == 6 || c == 8) ? 1 : 0);
 }
 
 int	ft_check_map(char *str, int j)
@@ -64,7 +62,7 @@ int	ft_check_map(char *str, int j)
 	return (0);
 }
 
-int ft_lineisvalid(char *str)
+int	ft_lineisvalid(char *str)
 {
 	int a;
 	int b;
@@ -120,7 +118,8 @@ int	ft_mapisvalid(char *str)
 		x = ft_check_map(str, j);
 		e = ft_checkhashtag(str, j);
 		if (x != 1 || e != 1 || ft_count_tet(str) > 26 ||
-					ft_lineisvalid(str) == 0)
+				ft_lineisvalid(str) == 0
+					|| ft_checkslash(str) != 1)
 			return (0);
 		else
 			j += 21;
