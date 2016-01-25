@@ -6,7 +6,7 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/05 16:30:17 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/01/22 22:13:07 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/01/25 16:30:40 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_read_txt(char *dst);
 char	**ft_intab(char *str);
 char	*ft_rapl_fonctions(char *str);
 char	**ft_initmap(int size);
-void	ft_showtab(char **tab);
+void	ft_showtab(char **tab, int size);
 int		ft_carlen(char **tab, int size);
 char	**ft_putintab(char **tab, char *str, int x, int y);
 int		ft_count_tet(char *str);
@@ -41,5 +41,6 @@ char	**ft_recreate(char **grille, int size);
 int		ft_retet(char **tetriminos);
 int		ft_countn(char *str);
 int		ft_checkslash(char *str);
+void	ft_draw(char **tab, int size);
 
 #endif

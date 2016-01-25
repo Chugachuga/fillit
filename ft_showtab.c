@@ -6,22 +6,22 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/12 18:51:15 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/01/22 21:58:25 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/01/25 16:31:46 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	ft_showtab(char **tab)
+void	ft_showtab(char **tab, int size)
 {
 	int a;
 	int b;
 
 	a = 0;
 	b = 0;
-	while (a < ft_carlen(tab, ft_strlen(tab[0])))
+	while (a < ft_carlen(tab, size))
 	{
-		while (b < ft_carlen(tab, ft_strlen(tab[0])))
+		while (b < ft_carlen(tab, size))
 		{
 			ft_putchar(tab[a][b]);
 			b++;

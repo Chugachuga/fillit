@@ -6,7 +6,7 @@
 /*   By: hlouar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 19:25:44 by hlouar            #+#    #+#             */
-/*   Updated: 2016/01/22 22:12:35 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/01/25 16:34:47 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int ac, char **av)
 		grille = ft_initmap(size);
 		while (ft_recursive(grille, size, tet, 0) == 0)
 			grille = ft_recreate(grille, ++size);
-		ft_showtab(grille);
+		ft_showtab(grille, size);
 		free(tet);
 		free(grille);
 	}
