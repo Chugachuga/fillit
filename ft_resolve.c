@@ -6,7 +6,7 @@
 /*   By: hlouar <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/18 14:50:55 by hlouar            #+#    #+#             */
-/*   Updated: 2016/01/22 16:45:23 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/01/25 20:36:40 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_recursive(char **grille, int size, char **tetriminos, int nbrtet)
 	while (x + ft_largeurpiece(tetriminos[nbrtet]) <= size)
 	{
 		y = 0;
-		while (y + ft_longueurpiece(tetriminos[nbrtet]) <= size)
+		while (y + ft_longueurpiece(tetriminos[nbrtet]) <= size + 1)
 		{
 			if (ft_try(tetriminos[nbrtet], x, y, grille))
 			{
