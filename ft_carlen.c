@@ -6,7 +6,7 @@
 /*   By: gvilmont <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/12 19:16:11 by gvilmont          #+#    #+#             */
-/*   Updated: 2016/01/25 16:21:21 by gvilmont         ###   ########.fr       */
+/*   Updated: 2016/01/25 17:53:09 by gvilmont         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_linelen(char **tab, int x, int size)
 	int y;
 
 	b = 0;
-	y = size;
+	y = size - 1;
 	while (y != 0)
 	{
 		if (ft_isalpha(tab[x][y]) == 1)
@@ -46,7 +46,7 @@ int	ft_xlen(char **tab, int size)
 			b = a;
 		x++;
 	}
-	return (size + 1 - b);
+	return (size - b);
 }
 
 int	ft_columnlen(char **tab, int y, int size)
